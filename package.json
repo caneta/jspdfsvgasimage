@@ -1,0 +1,46 @@
+{
+  "name": "jspdfsvgasimage",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "local-server": "http-server dist/ -p 3000",
+    "build-sass": "node-sass src/scss/main.scss build/main.css",
+    "build-postcss": "postcss -c postcss.config.js -o dist/css/main.min.css build/main.css",
+    "build-js": "webpack --progress --display-modules",
+    "build-all": "npm run build-sass && npm run build-js",
+    "copy-html": "cpx src/index.html dist/",
+    "copy-images": "cpx 'src/images/*' dist/images/",
+    "copy-all": "npm run copy-images && npm run copy-html",
+    "clean-build": "rimraf build/",
+    "clean-dist": "rimraf dist/",
+    "clean-all": "npm run clean-build && npm run clean-dist",
+    "dist-css": "npm run build-sass && npm run build-postcss",
+    "dist-js": "npm run build-js && cpx 'build/js/**/*' 'dist/js/'",
+    "dist-all": "npm run dist-css && npm run dist-js && npm run copy-all"
+  },
+  "author": "Alessandro Candini",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "autoprefixer": "^9.4.1",
+    "babel-loader": "^8.0.4",
+    "cpx": "^1.5.0",
+    "cssnano": "^4.1.7",
+    "http-server": "^0.11.1",
+    "imports-loader": "^0.8.0",
+    "node-sass": "^4.10.0",
+    "postcss": "^7.0.6",
+    "postcss-cli": "^6.0.1",
+    "rimraf": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.27.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "canvg": "^1.5.3",
+    "html2canvas": "^1.0.0-alpha.12",
+    "jspdf": "^1.4.1",
+    "promise-polyfill": "^8.1.0"
+  }
+}
