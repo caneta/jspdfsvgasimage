@@ -9,14 +9,12 @@
     "build-js": "webpack --progress --display-modules",
     "build-all": "npm run build-sass && npm run build-js",
     "copy-html": "cpx src/index.html dist/",
-    "copy-images": "cpx 'src/images/*' dist/images/",
-    "copy-all": "npm run copy-images && npm run copy-html",
     "clean-build": "rimraf build/",
     "clean-dist": "rimraf dist/",
     "clean-all": "npm run clean-build && npm run clean-dist",
     "dist-css": "npm run build-sass && npm run build-postcss",
     "dist-js": "npm run build-js && cpx 'build/js/**/*' 'dist/js/'",
-    "dist-all": "npm run dist-css && npm run dist-js && npm run copy-all"
+    "dist-all": "npm run dist-css && npm run dist-js && npm run copy-html"
   },
   "author": "Alessandro Candini",
   "license": "UNLICENSED",
